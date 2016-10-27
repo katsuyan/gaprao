@@ -1,0 +1,93 @@
+{% extends "accounts_base.html" %}
+{% load staticfiles %}
+
+{% block extrahead %}
+<link href="{% static 'css/accounts/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<body>
+
+  <h3>授業情報共有サービス(仮)</h3>
+  <hr>
+
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a href="#tab1" data-toggle="tab">ログイン</a>
+    </li>
+    <li>
+      <a href="#tab2" data-toggle="tab">新規登録</a>
+    </li>
+  </ul>
+
+  <div class="login center-block" >
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="tab1">
+        <div class="panel panel-default account_form_panel">
+
+          <div class="panel-heading account_from_header">
+            <h3 class="panel-title">ログイン</h3>
+          </div>
+
+          <div class="form-horizontal">
+
+            <div class="form-group login-form">
+              <label for="uname">ユーザ名</label>
+              <input type="text" class="form-control" id="login_name" name="username" />
+            </div>
+
+            <div class="form-group login-form">
+              <label for="pass">パスワード</label>
+              <input type="password" class="form-control" id="login_password" name="password" />
+            </div>
+
+            <div class="form-group login-form">
+              <button class="btn btn-info pull-right" id="login_button">ログイン</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="tab2">
+        <div class="login center-block" >
+          <div class="panel panel-default account_form_panel">
+
+            <div class="panel-heading account_from_header">
+              <h3 class="panel-title">新規登録</h3>
+            </div>
+
+            <div class="form-horizontal" role="form">
+
+              <div class="form-group login-form">
+                <label for="uname">ユーザ名</label>
+                <input type="text" class="form-control" id="register_name" name="username" />
+              </div>
+
+              <div class="form-group login-form">
+                <label for="email">メールアドレス</label>
+                <input type="text" class="form-control" id="register_email" name="email" />
+              </div>
+
+              <div class="form-group login-form">
+                <label for="pass">パスワード</label>
+                <input type="password" class="form-control" id="register_password" name="password" />
+              </div>
+
+              <div class="form-group login-form">
+                <button class="btn btn-warning pull-right" id="register_button">登録</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- javascript -->
+  <script type="text/javascript"> {% include "js/login.js" %} </script>
+  <!-- /javascript -->
+</body>
+
+{% endblock %}

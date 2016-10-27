@@ -1,0 +1,25 @@
+#account-form {
+  max-width: 60px;
+}
+.login {
+  max-width: 500px;
+}
+.login-form {
+  margin-right: 15px !important;
+  margin-left: 15px !important;
+}
+#welcome {
+  text-align: center;
+}
+.account_form_panel {
+   margin-top: 50px;
+}
+.account_from_header {
+   margin-bottom: 10px;
+}
+@media only screen and (max-width: 376px) {
+  .login {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+}

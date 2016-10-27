@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+
+{% block title %}Myページ{% endblock title %}
+
+{% block extrahead %}
+<style></style>
+{% endblock %}
+
+{% block content %}
+<h3 class="page-header">Myページ</h3>
+<h4>My時間割</h4>
+<table class="table table-bordered">
+  <tr>
+    <th></th>
+    <th>1限</th>
+    <th>2限</th>
+    <th>3限</th>
+    <th>4限</th>
+    <th>5限</th>
+    <th>6限</th>
+  </tr>
+  <tr>
+    <td align="center">月曜</td>
+    {% for jugyo in monday %}
+      {% if jugyo %}
+        <td align="center">
+          <a href="/jugyo/detail/{{ jugyo.id }}">{{ jugyo.name }}</a><br>{{ jugyo.room }}
+          <br><button class="btn btn-danger btn-xs pull-right my_jugyo_del" id="my_jugyo_del_button_{{ jugyo.id }}">
+            削除
+          </button>
+        </td>
+      {% else %}
+        <td align="center"></td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  <tr>
+    <td align="center">火曜</td>
+    {% for jugyo in tuesday %}
+      {% if jugyo %}
+        <td align="center">
+          <a href="/jugyo/detail/{{ jugyo.id }}">{{ jugyo.name }}</a><br>{{ jugyo.room }}
+          <br><button class="btn btn-danger btn-xs pull-right my_jugyo_del" id="my_jugyo_del_button_{{ jugyo.id }}">
+            削除
+          </button>
+        </td>
+      {% else %}
+        <td align="center"></td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  <tr>
+    <td align="center">水曜</td>
+    {% for jugyo in wednesday %}
+      {% if jugyo %}
+        <td align="center">
+          <a href="/jugyo/detail/{{ jugyo.id }}">{{ jugyo.name }}</a><br>{{ jugyo.room }}
+          <br><button class="btn btn-danger btn-xs pull-right my_jugyo_del" id="my_jugyo_del_button_{{ jugyo.id }}">
+            削除
+          </button>
+        </td>
+      {% else %}
+        <td align="center"></td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  <tr>
+    <td align="center">木曜</td>
+    {% for jugyo in thursday %}
+      {% if jugyo %}
+        <td align="center">
+          <a href="/jugyo/detail/{{ jugyo.id }}">{{ jugyo.name }}</a><br>{{ jugyo.room }}
+          <br><button class="btn btn-danger btn-xs pull-right my_jugyo_del" id="my_jugyo_del_button_{{ jugyo.id }}">
+            削除
+          </button>
+        </td>
+      {% else %}
+        <td align="center"></td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  <tr>
+    <td align="center">金曜</td>
+    {% for jugyo in friday %}
+      {% if jugyo %}
+        <td align="center">
+          <a href="/jugyo/detail/{{ jugyo.id }}">{{ jugyo.name }}</a><br>{{ jugyo.room }}
+          <br><button class="btn btn-danger btn-xs pull-right my_jugyo_del" id="my_jugyo_del_button_{{ jugyo.id }}">
+            削除
+          </button>
+        </td>
+      {% else %}
+        <td align="center"></a></td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+  <tr>
+    <td align="center">土曜</td>
+    {% for jugyo in saturday %}
+      {% if jugyo %}
+        <td align="center">
+          <a href="/jugyo/detail/{{ jugyo.id }}">{{ jugyo.name }}</a><br>{{ jugyo.room }}
+          <br><button class="btn btn-danger btn-xs pull-right my_jugyo_del" id="my_jugyo_del_button_{{ jugyo.id }}">
+            削除
+          </button>
+        </td>
+      {% else %}
+        <td align="center"></td>
+      {% endif %}
+    {% endfor %}
+  </tr>
+
+</table>
+
+<!-- javascript -->
+<script type="text/javascript"> {% include "js/my_page.js" %} </script>
+<!-- /javascript -->
+
+{% endblock content %}

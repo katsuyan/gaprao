@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}授業一覧{% endblock title %}
+
+{% block extrahead %}
+<link href="{% static 'css/jugyo/responsive_table.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+<h3 class="page-header">授業一覧</h3>
+
+<div class="table-responsive">
+  <table class="responsive_table">
+    <thead>
+      <tr>
+      </form>
+      <th>授業名</th>
+      <th>講師名</th>
+      <th>年度</th>
+      <th>開講日</th>
+      <th>授業詳細</th>
+      <th>削除</th>
+    </tr>
+  </thead>
+
+  <tbody id="list-results" class="table-data-text-break">
+    {% for data in data_list %}
+    <tr>
+      <td data-label="授業名" style="max-width:200px">{{ data.name }}</td>
+      <td data-label="講師名" style="max-width:200px">{{ data.teacher }}</td>
+      <td data-label="年度">{{ data.year  }}</td>
+      <td data-label="開講日">{{ data.date }} {{ data.period }}限</td>
+      <td><a href="/jugyo/detail/{{ data.id }}" class="btn btn-default btn-sm btn-primary">授業詳細</a>
+        <td><a href="{% url 'delete' jugyo_id=data.id %}" class="btn btn-default btn-sm delete_btn">削除</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- javascript -->
+<script type="text/javascript"> {% include "js/index.js" %} </script>
+<!-- /javascript -->
+
+{% endblock content %}

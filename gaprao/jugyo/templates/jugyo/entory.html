@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}授業追加{% endblock title %}
+
+{% block extrahead %}
+<style>
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 class="page-header">授業追加</h2>
+<div class="col-xs-8">
+  <table class="table table-bordered">
+    <tr>
+      <th class="col-xs-2 info">授業名</th>
+      <td><input type="text" class="form-control input-sm" id="jugyo_name"></td>
+    </tr>
+
+    <tr>
+      <th class="info">講師名</th>
+      <td><input type="text" class="form-control input-sm" id="jugyo_teacher"></td>
+    </tr>
+
+    <tr>
+      <th class="info">年度</th>
+      <td>
+        <select class="form-control input-sm" id="jugyo_year">
+          <option value="2015">2015</option>
+          <option value="2016">2016</option>
+          <option value="2017">2017</option>
+          <option value="2018">2018</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="info">学期</th>
+      <td><input type="text" class="form-control input-sm" id="jugyo_term"></td>
+    </tr>
+
+    <tr>
+      <th class="info">曜日</th>
+      <td>
+        <select class="form-control input-sm" id="jugyo_date">
+          <option value="0">月曜</option>
+          <option value="1">火曜</option>
+          <option value="2">水曜</option>
+          <option value="3">木曜</option>
+          <option value="4">金曜</option>
+          <option value="5">土曜</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="info">時限</th>
+      <td>
+        <select class="form-control input-sm" id="jugyo_period">
+          <option value="1">1限</option>
+          <option value="2">2限</option>
+          <option value="3">3限</option>
+          <option value="4">4限</option>
+          <option value="5">5限</option>
+          <option value="6">6限</option>
+        </select>
+      </td>
+    </tr>
+
+    <tr>
+      <th class="info">開講教室</th>
+      <td><input type="text" class="form-control input-sm" id="jugyo_room"></td>
+    </tr>
+
+    <tr>
+      <th class="info">シラバス</th>
+      <td><input type="text" class="form-control input-sm" id="jugyo_syllabus_url"></td>
+    </tr>
+  </table>
+</div>
+
+<div class="col-xs-4">
+  <div class="col-xs-6">
+    <table class="table table-bordered">
+      <tbody id="nojugyos">
+        <tr>
+          <th class="info text-center">休講日</th>
+        </tr>
+
+        <!-- ここにフォームが追加されていく -->
+
+      </tbody>
+    </table>
+    <button class="btn btn-warning" id="add_nojugyo_button" style="margin-bottom:30px">追加</button>
+  </div>
+
+  <div class="col-xs-6">
+    <table class="table table-bordered">
+      <tbody id="upjugyos">
+        <tr>
+          <th class="info text-center">補講日</th>
+        </tr>
+
+        <!-- ここにフォームが追加されていく -->
+
+      </tbody>
+    </table>
+    <button class="btn btn-warning" id="add_upjugyo_button" style="margin-bottom:30px">追加</button>
+  </div>
+</div>
+
+<div class="col-xs-12">
+  <table class="table table-bordered">
+    <tbody id="homeworks">
+      <tr>
+        <th class="col-xs-2 info">課題情報</th>
+        <th class="col-xs-2 info">提出期限</th>
+        <th class="col-xs-8 info">備考</th>
+      </tr>
+
+      <!-- ここにフォームが追加されていく -->
+
+    </tbody>
+  </table>
+  <button class="btn btn-warning" id="add_homework_button" style="margin-bottom:30px">追加</button>
+</div>
+
+<div class="col-xs-12">
+  <table class="table table-bordered">
+    <tbody id="exams">
+      <tr>
+        <th class="col-xs-2 info">テスト情報</th>
+        <th class="col-xs-2 info">日程</th>
+        <th class="col-xs-8 info">備考</th>
+      </tr>
+
+      <!-- ここにフォームが追加されていく -->
+
+    </tbody>
+  </table>
+  <button class="btn btn-warning" id="add_exam_button" style="margin-bottom:30px">追加</button>
+</div>
+<button class="btn btn-info pull-right" id="create_button" style="margin-bottom:30px">授業作成</button>
+
+<!-- javascript -->
+<script type="text/javascript"> {% include "js/entory.js" %} </script>
+<!-- /javascript -->
+
+{% endblock content %}

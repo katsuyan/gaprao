@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}授業詳細{% endblock title %}
+
+{% block extrahead %}
+<style>
+table {
+  width: 80%;
+  border-collapse: collapse;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 class="page-header">授業詳細</h2>
+<div class="col-xs-8">
+  <table class="table table-bordered">
+    <tr>
+      <th class="col-xs-2 info">授業名</th>
+      <td class="col-xs-8">{{ data.name }}</td>
+    </tr>
+
+    <tr>
+      <th class="info">講師名</th>
+      <td>{{ data.teacher }}</td>
+    </tr>
+
+    <tr>
+      <th class="info">年度学期</th>
+      <td>{{ data.year }} {{ data.term }}</td>
+    </tr>
+
+    <tr>
+      <th class="info">曜日時限</th>
+      <td>{{ data.date }}{{ data.period }}限</td>
+    </tr>
+
+    <tr>
+      <th class="info">開講教室</th>
+      <td>{{ data.room }}</td>
+    </tr>
+
+    <tr>
+      <th class="info">シラバス</th>
+      <td>{{ data.syllabus_url }}</td>
+    </tr>
+  </table>
+</div>
+<div class="col-xs-4">
+  <button class="btn btn-danger" id="add_mypage_btn" style="margin-bottom:5px">
+    <i class="glyphicon glyphicon-check"></i> My授業追加
+  </button>
+  <button class="btn btn-info" id="jugyo_edit_btn" style="margin-bottom:5px">
+    <i class="glyphicon glyphicon-edit"></i> 授業編集
+  </button>
+  <div class="col-xs-6">
+    <table class="table table-bordered">
+      <tr>
+        <th class="info text-center">休講日</th>
+      </tr>
+      {% for nojugyo in nojugyos %}
+      <tr>
+        <td>{{ nojugyo.day }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div class="col-xs-6">
+    <table class="table table-bordered">
+      <tr>
+        <th class="info text-center">補講日</th>
+      </tr>
+      {% for upjugyo in upjugyos %}
+      <tr>
+        <td>{{ upjugyo.day }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+</div>
+
+<div class="col-xs-12">
+  <table class="table table-bordered">
+    <tr>
+      <th class="col-xs-2 info">課題情報</th>
+      <th class="col-xs-2 info">提出期限</th>
+      <th class="col-xs-8 info">備考</th>
+    </tr>
+    {% for homework in homeworks %}
+    <tr>
+      <td>{{ homework.name }}</td>
+      <td>{{ homework.dead_line }}</td>
+      <td>{{ homework.info}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<div class="col-xs-12">
+  <table class="table table-bordered">
+    <tr>
+      <th class="col-xs-2 info">テスト情報</th>
+      <th class="col-xs-2 info">日程</th>
+      <th class="col-xs-8 info">備考</th>
+    </tr>
+    {% for exam in exams %}
+    <tr>
+      <td>{{ exam.name }}</td>
+      <td>{{ exam.day }}</td>
+      <td>{{ exam.exam_info}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+<!-- javascript -->
+<script type="text/javascript"> {% include "js/detail.js" %} </script>
+<!-- /javascript -->
+
+{% endblock content %}
